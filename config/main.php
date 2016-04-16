@@ -34,7 +34,7 @@ return [
     'modules' =>
     [
         'authclient' => [
-            'class'         => 'skeeks\cms\authclient\CmsAuthclientModule',
+            'class'         => 'skeeks\cms\authclient\CmsAuthClientModule',
         ]
     ]
 

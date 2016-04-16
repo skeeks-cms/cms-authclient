@@ -29,7 +29,7 @@ return
 
                     [
                         "label"     => \Yii::t('skeeks/authclient', "Social profiles"),
-                        "url"       => ["cms/admin-user-auth-client"],
+                        "url"       => ["authclient/admin-user-auth-client"],
                         "img"       => ['\skeeks\cms\authclient\assets\CmsAuthclientAsset', 'icons/facebook.png']
                     ],
 

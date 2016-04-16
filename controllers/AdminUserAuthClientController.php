@@ -46,8 +46,6 @@ class AdminUserAuthClientController extends AdminModelEditorController
                         'class'         => \skeeks\cms\grid\DateTimeColumnData::className(),
                         'attribute'     => "created_at"
                     ],
-
-
                 ],
             ],
 

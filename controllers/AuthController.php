@@ -7,6 +7,30 @@
  */
 namespace skeeks\cms\authclient\controllers;
 
+use skeeks\cms\actions\LogoutAction;
+use skeeks\cms\base\Controller;
+use skeeks\cms\components\Cms;
+use skeeks\cms\helpers\AjaxRequestResponse;
+use skeeks\cms\helpers\RequestResponse;
+use skeeks\cms\helpers\UrlHelper;
+use skeeks\cms\models\CmsUserEmail;
+use skeeks\cms\models\forms\LoginForm;
+use skeeks\cms\models\forms\LoginFormUsernameOrEmail;
+use skeeks\cms\models\forms\PasswordResetRequestFormEmailOrLogin;
+use skeeks\cms\models\forms\SignupForm;
+use skeeks\cms\models\User;
+use skeeks\cms\modules\admin\controllers\helpers\ActionManager;
+use skeeks\cms\modules\admin\filters\AccessControl;
+use skeeks\cms\models\UserAuthClient;
+use yii\authclient\BaseOAuth;
+use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
+use yii\helpers\Url;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
+use \Yii;
+
 /**
  * Class AuthController
  * @package skeeks\cms\modules\admin\controllers
@@ -23,8 +47,8 @@ class AuthController extends Controller
             'client' => [
                 'class' => 'yii\authclient\AuthAction',
                 'successCallback' => [$this, 'onAuthSuccess'],
-                'successUrl' => Url::to(['/cms/user/profile']),
-                'cancelUrl' => Url::to(['/cms/user/profile']),
+                'successUrl' => Url::to(['/cms/profile']),
+                'cancelUrl' => Url::to(['/cms/profile']),
             ],
         ];
     }

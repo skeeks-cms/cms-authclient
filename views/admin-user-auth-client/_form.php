@@ -1,23 +1,16 @@
 <?php
-use yii\helpers\Html;
-use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
-
 /* @var $this yii\web\View */
 /* @var $model \yii\db\ActiveRecord */
 ?>
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab::begin(); ?>
 
     <?= $form->fieldSet(\Yii::t('app',"Main")); ?>
     <? if (\Yii::$app->request->get('user_id')) : ?>
         <?= $form->field($model, 'user_id')->hiddenInput(['value' => \Yii::$app->request->get('user_id')])->label(false) ?>
     <? else: ?>
-        <?= $form->fieldSelect($model, 'user_id', \yii\helpers\ArrayHelper::map(
-            \skeeks\cms\models\User::find()->active()->all(),
-            'id',
-            'displayName'
-        ), [
-            'allowDeselect' => true
-        ]) ?>
+        <?= $form->field($model, 'user_id')->widget(
+            \skeeks\cms\modules\admin\widgets\formInputs\SelectModelDialogUserInput::className()
+        ) ?>
     <? endif; ?>
 
     <?= $form->fieldSetEnd(); ?>
@@ -38,4 +31,4 @@ use skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab as ActiveForm;
 
 
     <?= $form->buttonsCreateOrUpdate($model); ?>
-<?php ActiveForm::end(); ?>
+<?php skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab::end(); ?>

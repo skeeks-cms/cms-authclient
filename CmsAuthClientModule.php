@@ -6,11 +6,13 @@
  * @date 15.04.2016
  */
 namespace skeeks\cms\authclient;
+use yii\base\Module;
+
 /**
  * Class CmsAuthClientModule
  * @package skeeks\cms\authclient
  */
-class CmsAuthClientModule extends \skeeks\cms\base\Module
+class CmsAuthclientModule extends Module
 {
     public $controllerNamespace = 'skeeks\cms\authclient\controllers';
 }
