@@ -2,9 +2,9 @@
 	"name": "skeeks/cms-authclient",
 	"description": "Authorization by social networks for SkeekS CMS",
 	"keywords": ["yii", "skeeks", "framework", "component", "authclient"],
-    "homepage": "http://cms.skeeks.com/",
+    	"homepage": "http://cms.skeeks.com/",
 	"type": "yii2-extension",
-	"license": "BSD-3-Clause",
+	"license": "GPL-3.0+",
 	"support": {
         "issues": "http://skeeks.com/",
         "wiki": "http://en.cms.skeeks.com/docs/",
