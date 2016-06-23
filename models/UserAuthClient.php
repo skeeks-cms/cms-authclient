@@ -10,8 +10,13 @@ namespace skeeks\cms\authclient\models;
 use skeeks\cms\models\behaviors\HasJsonFieldsBehavior;
 use Yii;
 use \yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 
 /**
+ * @property string $provider
+ * @property array $provider_data
+ * @property string $providerUrl
+ *
  * Class UserAuthClient
  * @package skeeks\module\cms\user\model
  */
@@ -59,13 +64,13 @@ class UserAuthClient extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'user_id' => Yii::t('app', 'User'),
-            'provider' => Yii::t('app', 'Provider'),
-            'provider_identifier' => Yii::t('app', 'Provider Identifier'),
-            'provider_data' => Yii::t('app', 'Provider Data'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => Yii::t('skeeks/authclient', 'ID'),
+            'user_id' => Yii::t('skeeks/authclient', 'User'),
+            'provider' => Yii::t('skeeks/authclient', 'Provider'),
+            'provider_identifier' => Yii::t('skeeks/authclient', 'Provider Identifier'),
+            'provider_data' => Yii::t('skeeks/authclient', 'Provider Data'),
+            'created_at' => Yii::t('skeeks/authclient', 'Created At'),
+            'updated_at' => Yii::t('skeeks/authclient', 'Updated At'),
         ];
     }
 
@@ -83,5 +88,25 @@ class UserAuthClient extends ActiveRecord
     public function getDisplayName()
     {
         return $this->provider . " [{$this->provider_identifier}]";
+    }
+
+    /**
+     * @return string
+     */
+    public function getProviderUrl()
+    {
+        if ($this->provider == 'facebook')
+        {
+            $id = ArrayHelper::getValue($this->provider_data, 'id');
+            return 'https://www.facebook.com/' . $id;
+        }
+
+        if ($this->provider == 'vkontakte')
+        {
+            $id = ArrayHelper::getValue($this->provider_data, 'user_id');
+            return 'https://vk.com/id' . $id;
+        }
+
+        return '#';
     }
 }

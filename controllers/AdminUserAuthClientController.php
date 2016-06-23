@@ -20,7 +20,7 @@ class AdminUserAuthClientController extends AdminModelEditorController
 {
     public function init()
     {
-        $this->name                   = "Управление социальными профилями";
+        $this->name                   = \Yii::t('skeeks/authclient', 'Social profiles');
         $this->modelShowAttribute      = "displayName";
         $this->modelClassName          = UserAuthClient::className();
 
@@ -31,23 +31,6 @@ class AdminUserAuthClientController extends AdminModelEditorController
     public function actions()
     {
         return ArrayHelper::merge(parent::actions(), [
-
-            'index' =>
-            [
-                "columns"      => [
-                    'displayName',
-
-                    [
-                        'class'         => \skeeks\cms\grid\UserColumnData::className(),
-                        'attribute'     => "user_id"
-                    ],
-
-                    [
-                        'class'         => \skeeks\cms\grid\DateTimeColumnData::className(),
-                        'attribute'     => "created_at"
-                    ],
-                ],
-            ],
 
             'create' =>
             [

@@ -1,6 +1,10 @@
 CHANGELOG
 ==============
 
+1.0.0-beta
+-----------------
+  * Changes in the administrative part
+
 1.0.0-alpha2
 -----------------
   * Small changes
