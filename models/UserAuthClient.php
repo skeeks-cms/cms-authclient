@@ -9,6 +9,7 @@ namespace skeeks\cms\authclient\models;
 
 use skeeks\cms\models\behaviors\HasJsonFieldsBehavior;
 use Yii;
+use yii\behaviors\TimestampBehavior;
 use \yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 
@@ -40,7 +41,11 @@ class UserAuthClient extends ActiveRecord
             [
                 'class'     => HasJsonFieldsBehavior::className(),
                 'fields'    => ['provider_data']
-            ]
+            ],
+            TimestampBehavior::className() =>
+            [
+                'class' => TimestampBehavior::className(),
+            ],
         ]);
     }
 
@@ -105,6 +110,10 @@ class UserAuthClient extends ActiveRecord
         {
             $id = ArrayHelper::getValue($this->provider_data, 'user_id');
             return 'https://vk.com/id' . $id;
+        }
+        if ($this->provider == 'github')
+        {
+            return ArrayHelper::getValue($this->provider_data, 'html_url', '#');
         }
 
         return '#';

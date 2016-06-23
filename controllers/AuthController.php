@@ -21,7 +21,7 @@ use skeeks\cms\models\forms\SignupForm;
 use skeeks\cms\models\User;
 use skeeks\cms\modules\admin\controllers\helpers\ActionManager;
 use skeeks\cms\modules\admin\filters\AccessControl;
-use skeeks\cms\models\UserAuthClient;
+use skeeks\cms\authclient\models\UserAuthClient;
 use yii\authclient\BaseOAuth;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
