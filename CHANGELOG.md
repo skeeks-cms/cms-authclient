@@ -1,6 +1,10 @@
 CHANGELOG
 ==============
 
+1.0.0-rc2
+-----------------
+  * Fixed bugs
+
 1.0.0-rc1
 -----------------
   * Changes in the administrative part
