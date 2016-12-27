@@ -22,19 +22,19 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
     public $enabled = false;
 
     //Настройки для гитхаба
-    public $githubEnabled       = true;
+    public $githubEnabled       = false;
     public $githubClientId      = '';
     public $githubClientSecret  = '';
     public $githubClass         = '';
 
     //Настройки для vk
-    public $vkEnabled       = true;
+    public $vkEnabled       = false;
     public $vkClientId      = '';
     public $vkClientSecret  = '';
     public $vkClass         = '';
 
     //Настройки для facebook
-    public $facebookEnabled       = true;
+    public $facebookEnabled       = false;
     public $facebookClientId      = '';
     public $facebookClientSecret  = '';
     public $facebookClass         = '';
@@ -158,7 +158,7 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
      */
     protected function _initFacebookData(&$data = [])
     {
-        if ($this->vkEnabled && $this->vkClientId && $this->vkClientSecret)
+        if ($this->facebookEnabled && $this->vkClientId && $this->vkClientSecret)
         {
             $data['facebook'] = [
                   'class'           => $this->facebookClass ? $this->facebookClass : 'yii\authclient\clients\Facebook',

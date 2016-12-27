@@ -22,6 +22,6 @@ class CmsAuthClientCollection extends \yii\authclient\Collection
             return;
         }
 
-        $this->clients = \Yii::$app->authClientSettings->clients;
+        $this->clients = ArrayHelper::merge((array) $this->clients, (array) \Yii::$app->authClientSettings->clients);
     }
 }
