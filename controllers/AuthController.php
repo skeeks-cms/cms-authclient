@@ -149,7 +149,30 @@ class AuthController extends Controller
                         }
                     }
 
+                    //google email
+                    if ($emails = ArrayHelper::getValue($attributes, 'emails'))
+                    {
+                        if (is_array($emails) && isset($emails[0]) && ArrayHelper::getValue($emails[0], 'value'))
+                        {
+                            $user->email = ArrayHelper::getValue($emails[0], 'value');
+                            if (!$user->save())
+                            {
+                                \Yii::error("Не удалось обновить данные пользователя: " . serialize($user->getErrors()), 'authClient');
+                            }
+                        }
+
+                    }
+
                     if ($name = ArrayHelper::getValue($attributes, 'name'))
+                    {
+                        $user->name = $name;
+                        if (!$user->save())
+                        {
+                            \Yii::error("Не удалось обновить данные пользователя: " . serialize($user->getErrors()), 'authClient');
+                        }
+                    }
+
+                    if ($name = ArrayHelper::getValue($attributes, 'displayName'))
                     {
                         $user->name = $name;
                         if (!$user->save())
@@ -169,6 +192,9 @@ class AuthController extends Controller
                             \Yii::error("Не удалось обновить данные пользователя: " . serialize($user->getErrors()), 'authClient');
                         }
                     }
+
+
+
                 }
 
 
@@ -197,10 +223,20 @@ class AuthController extends Controller
 
                                 $user->link('image', $file);
                             }
-                        } catch(\Exception $e)
-                        {
 
-                        }
+                            //google
+                            if ($photoUrl = ArrayHelper::getValue($attributes, 'image.url'))
+                            {
+                                $file = \Yii::$app->storage->upload($photoUrl, [
+                                    'name' => $user->name
+                                ]);
+
+                                $user->link('image', $file);
+                            }
+
+
+                        } catch(\Exception $e)
+                        {}
 
                     }
 

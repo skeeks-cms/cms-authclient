@@ -60,5 +60,23 @@ use yii\helpers\Html;
 
 <?= $form->fieldSetEnd(); ?>
 
+<?= $form->fieldSet('Google'); ?>
+
+    <p>
+        <?=\Yii::t('skeeks/authclient', 'Create application at page')?>: <?= Html::a('https://console.developers.google.com/project', 'https://console.developers.google.com/project', [
+            'target' => '_blank'
+        ]); ?><?=\Yii::t('skeeks/authclient',', and get its settings.')?>
+        https://console.developers.google.com/project/[yourProjectId]/apiui/credential
+    </p>
+    <hr />
+
+    <?= $form->field($model, 'googleEnabled')->radioList(\Yii::$app->formatter->booleanFormat); ?>
+
+    <?= $form->field($model, 'googleClientId')->textInput(['placeholder' => '330404612095-b82l5d8ir7m11m154gij7jb6npfitnpd.apps.googleusercontent.com']); ?>
+    <?= $form->field($model, 'googleClientSecret')->textInput(['placeholder' => 'pJRpdS7UQRabOumyqRj-HaDR']); ?>
+    <?= $form->field($model, 'googleClass')->textInput(['placeholder' => 'yii\authclient\clients\Google'])->hint(\Yii::t('skeeks/authclient','Optional parameter, if not filled will be used {yii}',['yii' => 'yii\authclient\clients\Google'])); ?>
+
+<?= $form->fieldSetEnd(); ?>
+
 
 

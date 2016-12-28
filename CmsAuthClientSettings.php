@@ -22,22 +22,28 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
     public $enabled = false;
 
     //Настройки для гитхаба
-    public $githubEnabled       = false;
+    public $githubEnabled       = 0;
     public $githubClientId      = '';
     public $githubClientSecret  = '';
     public $githubClass         = '';
 
     //Настройки для vk
-    public $vkEnabled       = false;
+    public $vkEnabled       = 0;
     public $vkClientId      = '';
     public $vkClientSecret  = '';
     public $vkClass         = '';
 
     //Настройки для facebook
-    public $facebookEnabled       = false;
+    public $facebookEnabled       = 0;
     public $facebookClientId      = '';
     public $facebookClientSecret  = '';
     public $facebookClass         = '';
+
+    //Настройки для google
+    public $googleEnabled       = 0;
+    public $googleClientId      = '';
+    public $googleClientSecret  = '';
+    public $googleClass         = '';
 
     /**
      * Можно задать название и описание компонента
@@ -78,6 +84,11 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
             [['facebookClientId'], 'integer'],
             [['facebookClientSecret'], 'string'],
             [['facebookClass'], 'string'],
+
+            [['googleEnabled'], 'boolean'],
+            [['googleClientId'], 'string'],
+            [['googleClientSecret'], 'string'],
+            [['googleClass'], 'string'],
         ]);
     }
 
@@ -103,6 +114,11 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
             'facebookClientId'                => 'clientId',
             'facebookClientSecret'            => 'clientSecret',
             'facebookClass'                   => 'Обработчик',
+
+            'googleEnabled'                 => 'Включить авторизацию через google',
+            'googleClientId'                => 'clientId',
+            'googleClientSecret'            => 'clientSecret',
+            'googleClass'                   => 'Обработчик',
         ]);
     }
 
@@ -158,12 +174,33 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
      */
     protected function _initFacebookData(&$data = [])
     {
-        if ($this->facebookEnabled && $this->vkClientId && $this->vkClientSecret)
+        if ($this->facebookEnabled && $this->facebookClientId && $this->facebookClientSecret)
         {
             $data['facebook'] = [
                   'class'           => $this->facebookClass ? $this->facebookClass : 'yii\authclient\clients\Facebook',
                   'clientId'        => $this->facebookClientId,
                   'clientSecret'    => $this->facebookClientSecret,
+            ];
+        }
+
+        return $this;
+    }
+
+    /**
+     *
+     * Инициализация гитхаб провайдера
+     *
+     * @param array $data
+     * @return $this
+     */
+    protected function _initGoogleData(&$data = [])
+    {
+        if ($this->googleEnabled && $this->googleClientId && $this->googleClientSecret)
+        {
+            $data['google'] = [
+                  'class'           => $this->googleClass ? $this->googleClass : 'yii\authclient\clients\Google',
+                  'clientId'        => $this->googleClientId,
+                  'clientSecret'    => $this->googleClientSecret,
             ];
         }
 
@@ -180,6 +217,7 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
         $this->_initGitHubData($result);
         $this->_initVkData($result);
         $this->_initFacebookData($result);
+        $this->_initGoogleData($result);
 
         return $result;
     }
