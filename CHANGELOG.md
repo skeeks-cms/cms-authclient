@@ -3,7 +3,7 @@ CHANGELOG
 
 1.0.1
 -----------------
-  * Added facebook
+  * Added google
 
 1.0.0
 -----------------
