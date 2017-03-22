@@ -1,6 +1,10 @@
 CHANGELOG
 ==============
 
+2.0.0.pre
+-----------------
+  * Update SkeekS CMS
+  
 1.0.1
 -----------------
   * Added google
