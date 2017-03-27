@@ -20,7 +20,7 @@ return
                     [
                         "label" => \Yii::t('app', "Settings"),
                         "url"   => ["cms/admin-settings", "component" => 'skeeks\cms\authclient\CmsAuthClientSettings'],
-                        "img"       => ['\skeeks\cms\modules\admin\assets\AdminAsset', 'images/icons/settings-big.png'],
+                        "img"       => ['skeeks\cms\assets\CmsAsset', 'images/icons/settings-big.png'],
                         "activeCallback"       => function($adminMenuItem)
                         {
                             return (bool) (\Yii::$app->request->getUrl() == $adminMenuItem->getUrl());
