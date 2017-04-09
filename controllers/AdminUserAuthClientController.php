@@ -34,7 +34,7 @@ class AdminUserAuthClientController extends AdminModelEditorController
 
             'create' =>
             [
-                'visible'    => false
+                'isVisible'    => false
             ]
         ]);
     }
