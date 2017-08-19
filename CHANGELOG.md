@@ -1,6 +1,10 @@
 CHANGELOG
 ==============
 
+2.0.0-alpha2.pre
+-----------------
+  * Dev
+  
 2.0.0-alpha
 -----------------
   * Update SkeekS CMS
