@@ -9,8 +9,8 @@
         <?= $form->field($model, 'user_id')->hiddenInput(['value' => \Yii::$app->request->get('user_id')])->label(false) ?>
     <? else: ?>
         <?= $form->field($model, 'user_id')->widget(
-            \skeeks\cms\modules\admin\widgets\formInputs\SelectModelDialogUserInput::className()
-        ) ?>
+            \skeeks\cms\backend\widgets\SelectModelDialogUserWidget::class
+        ); ?>
     <? endif; ?>
 
     <?= $form->fieldSetEnd(); ?>

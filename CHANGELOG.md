@@ -1,6 +1,14 @@
 CHANGELOG
 ==============
 
+2.1.0
+-----------------
+  * Using composer-config-plugin
+  
+2.0.0
+-----------------
+  * stable
+  
 2.0.0-beta
 -----------------
   * Dev

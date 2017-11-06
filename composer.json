@@ -2,12 +2,12 @@
 	"name": "skeeks/cms-authclient",
 	"description": "Authorization by social networks for SkeekS CMS",
 	"keywords": ["yii", "skeeks", "framework", "component", "authclient"],
-    	"homepage": "http://cms.skeeks.com/",
+    	"homepage": "https://cms.skeeks.com/",
 	"type": "yii2-extension",
 	"license": "GPL-3.0+",
 	"support": {
-        "issues": "http://skeeks.com/",
-        "wiki": "http://en.cms.skeeks.com/docs/",
+        "issues": "https://skeeks.com/",
+        "wiki": "https://cms.skeeks.com/docs/",
         "source": "https://github.com/skeeks-cms/cms-authclient"
     },
 	"authors": [
@@ -22,7 +22,12 @@
 	},
     "autoload": {
         "psr-4": {
-            "skeeks\\cms\\authclient\\": ""
+            "skeeks\\cms\\authclient\\": "src/"
+        }
+    },
+	"extra": {
+        "config-plugin": {
+            "web": "src/config/main.php"
         }
     }
 }
