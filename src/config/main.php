@@ -29,6 +29,22 @@ return [
                 ]
             ]
         ],
+
+        'upaBackend' => [
+            'menu' => [
+                'data' => [
+                    'personal' => [
+                        'items' => [
+                            [
+                                'name' => ['skeeks/authclient', 'Social networks'],
+                                'url' => ['/authclient/upa-social/update'],
+                                'icon' => 'fa fa-facebook',
+                            ]
+                        ],
+                    ],
+                ],
+            ],
+        ],
     ],
 
     'modules' =>
