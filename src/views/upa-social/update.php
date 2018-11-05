@@ -8,13 +8,13 @@
 ?>
 <? if (\Yii::$app->authClientCollection->clients) : ?>
     <div id="sx-social" class="">
-        <? \yii\bootstrap\Alert::begin([
+        <? $alert = \yii\bootstrap\Alert::begin([
             'options' => [
               'class' => 'alert-info',
             ],
         ])?>
             Вы можете подключить профиль социальной сети, или стороннего приложения, и авторизовываться через него на нашем сайте.
-        <? \yii\bootstrap\Alert::end()?>
+        <? $alert::end()?>
 
 
         <? if (\Yii::$app->user->identity->cmsUserAuthClients) : ?>
