@@ -17,18 +17,6 @@ return [
             'class' => 'skeeks\cms\authclient\CmsAuthClientSettings',
         ],
 
-        'i18n' => [
-            'translations' =>
-            [
-                'skeeks/authclient' => [
-                    'class'             => 'yii\i18n\PhpMessageSource',
-                    'basePath'          => '@skeeks/cms/authclient/messages',
-                    'fileMap' => [
-                        'skeeks/authclient' => 'main.php',
-                    ],
-                ]
-            ]
-        ],
 
         'upaBackend' => [
             'menu' => [

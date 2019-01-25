@@ -1,33 +1,45 @@
 {
-	"name": "skeeks/cms-authclient",
-	"description": "Authorization by social networks for SkeekS CMS",
-	"keywords": ["yii", "skeeks", "framework", "component", "authclient"],
-    	"homepage": "https://cms.skeeks.com/",
-	"type": "yii2-extension",
-	"license": "BSD-3-Clause",
-	"support": {
+    "name": "skeeks/cms-authclient",
+    "description": "Authorization by social networks for SkeekS CMS",
+    "keywords": [
+        "yii",
+        "skeeks",
+        "framework",
+        "component",
+        "authclient"
+    ],
+    "homepage": "https://cms.skeeks.com/",
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
         "issues": "https://skeeks.com/",
         "wiki": "https://cms.skeeks.com/docs/",
         "source": "https://github.com/skeeks-cms/cms-authclient"
     },
-	"authors": [
-		{
-			"name": "Semenov Alexander",
-			"email": "semenov@skeeks.com"
-		}
-	],
-	"require": {
-		"skeeks/cms": "*",
-	  	"yiisoft/yii2-authclient": "*"
-	},
+    "authors": [
+        {
+            "name": "Semenov Alexander",
+            "email": "semenov@skeeks.com"
+        }
+    ],
+    "require": {
+        "skeeks/cms": "*",
+        "yiisoft/yii2-authclient": "*"
+    },
     "autoload": {
         "psr-4": {
             "skeeks\\cms\\authclient\\": "src/"
         }
     },
-	"extra": {
+    "extra": {
         "config-plugin": {
-            "web": "src/config/main.php"
+            "web": [
+                "src/config/common.php",
+                "src/config/web.php"
+            ],
+            "console": [
+                "src/config/common.php"
+            ]
         }
     }
 }
