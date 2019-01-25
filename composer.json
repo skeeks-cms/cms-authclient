@@ -23,8 +23,8 @@
         }
     ],
     "require": {
-        "skeeks/cms": "*",
-        "yiisoft/yii2-authclient": "*"
+        "skeeks/cms": "^5.2.1 || dev-master",
+        "yiisoft/yii2-authclient": "^2.1.7"
     },
     "autoload": {
         "psr-4": {
