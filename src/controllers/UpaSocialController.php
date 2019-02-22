@@ -47,6 +47,7 @@ class UpaSocialController extends BackendModelController
     {
         return ArrayHelper::merge(parent::actions(), [
                 "update" => [
+                    'accessCallback' => true,
                     'class' => BackendModelAction::class,
                     'name'  => ['skeeks/authclient', 'Social networks'],
                     'icon'  => 'fa fa-facebook',
