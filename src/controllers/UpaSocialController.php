@@ -11,6 +11,7 @@ namespace skeeks\cms\authclient\controllers;
 use skeeks\cms\backend\actions\BackendModelAction;
 use skeeks\cms\backend\actions\BackendModelUpdateAction;
 use skeeks\cms\backend\controllers\BackendModelController;
+use skeeks\cms\components\Cms;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -26,6 +27,11 @@ class UpaSocialController extends BackendModelController
         $this->name = ['skeeks/cms', 'Personal data'];
         $this->modelClassName = \Yii::$app->user->identityClass;
         $this->modelShowAttribute = 'displayName';
+
+        $this->permissionNames = [
+            Cms::UPA_PERMISSION => 'Доступ к персональной части',
+        ];
+
         parent::init();
     }
 
