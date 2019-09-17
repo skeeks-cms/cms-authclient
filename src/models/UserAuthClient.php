@@ -103,7 +103,7 @@ class UserAuthClient extends ActiveRecord
         if ($this->provider == 'facebook')
         {
             $id = ArrayHelper::getValue($this->provider_data, 'id');
-            return 'https://www.facebook.com/' . $id;
+            return 'https://www.facebook.com/profile.php?id=' . $id;
         }
 
         if ($this->provider == 'vkontakte')

@@ -118,7 +118,7 @@ class AuthController extends Controller
 
 
                     //Тут можно обновить данные пользователя.
-                    if ($login = ArrayHelper::getValue($attributes, 'screen_name'))
+                    /*if ($login = ArrayHelper::getValue($attributes, 'screen_name'))
                     {
                         $user->username = $login;
                         if (!$user->save())
@@ -136,7 +136,7 @@ class AuthController extends Controller
                         {
                             \Yii::error("Не удалось обновить данные пользователя: " . serialize($user->getErrors()), 'authClient');
                         }
-                    }
+                    }*/
 
 
                     if ($email = ArrayHelper::getValue($attributes, 'email'))
@@ -164,7 +164,7 @@ class AuthController extends Controller
 
                     if ($name = ArrayHelper::getValue($attributes, 'name'))
                     {
-                        $user->name = $name;
+                        $user->first_name = $name;
                         if (!$user->save())
                         {
                             \Yii::error("Не удалось обновить данные пользователя: " . serialize($user->getErrors()), 'authClient');
@@ -173,7 +173,7 @@ class AuthController extends Controller
 
                     if ($name = ArrayHelper::getValue($attributes, 'displayName'))
                     {
-                        $user->name = $name;
+                        $user->first_name = $name;
                         if (!$user->save())
                         {
                             \Yii::error("Не удалось обновить данные пользователя: " . serialize($user->getErrors()), 'authClient');
@@ -185,7 +185,8 @@ class AuthController extends Controller
 
                     if ($firstName || $lastName)
                     {
-                        $user->name = $lastName . " " . $firstName;
+                        $user->first_name = $firstName;
+                        $user->last_name = $lastName;
                         if (!$user->save())
                         {
                             \Yii::error("Не удалось обновить данные пользователя: " . serialize($user->getErrors()), 'authClient');
@@ -217,7 +218,7 @@ class AuthController extends Controller
                             if ($photoUrl = ArrayHelper::getValue($attributes, 'photo'))
                             {
                                 $file = \Yii::$app->storage->upload($photoUrl, [
-                                    'name' => $user->name
+                                    'name' => $user->displayName
                                 ]);
 
                                 $user->link('image', $file);
@@ -227,7 +228,7 @@ class AuthController extends Controller
                             if ($photoUrl = ArrayHelper::getValue($attributes, 'image.url'))
                             {
                                 $file = \Yii::$app->storage->upload($photoUrl, [
-                                    'name' => $user->name
+                                    'name' => $user->displayName
                                 ]);
 
                                 $user->link('image', $file);
@@ -246,7 +247,7 @@ class AuthController extends Controller
                             if ($photoUrl = ArrayHelper::getValue($attributes, 'avatar_url'))
                             {
                                 $file = \Yii::$app->storage->upload($photoUrl, [
-                                    'name' => $user->name
+                                    'name' => $user->displayName
                                 ]);
 
                                 $user->link('image', $file);
