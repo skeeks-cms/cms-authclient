@@ -22,7 +22,7 @@ return [
                         'child' => [
                             //Есть доступ к системе администрирования
                             'permissions' => [
-                                //"cmsAgent/admin-cms-agent",
+                                "authclient/admin-user-auth-client",
                             ],
                         ],
                     ],
