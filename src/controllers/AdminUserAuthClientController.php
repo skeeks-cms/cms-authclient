@@ -24,6 +24,8 @@ class AdminUserAuthClientController extends AdminModelEditorController
         $this->modelShowAttribute      = "displayName";
         $this->modelClassName          = UserAuthClient::className();
 
+        $this->generateAccessActions = false;
+        
         parent::init();
 
     }
