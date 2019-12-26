@@ -46,8 +46,8 @@ class AuthController extends Controller
             'client' => [
                 'class' => 'yii\authclient\AuthAction',
                 'successCallback' => [$this, 'onAuthSuccess'],
-                'successUrl' => Url::to(['/authclient/upa-social/update']),
-                'cancelUrl' => Url::to(['/authclient/upa-social/update']),
+                /*'successUrl' => Url::to(['/authclient/upa-social/update']),
+                'cancelUrl' => Url::to(['/authclient/upa-social/update']),*/
             ],
         ];
     }
