@@ -30,5 +30,5 @@
     <? endif; ?>
 
 
-    <?= $form->buttonsCreateOrUpdate($model); ?>
+    <?= $form->buttonsStandart($model); ?>
 <?php skeeks\cms\modules\admin\widgets\form\ActiveFormUseTab::end(); ?>
