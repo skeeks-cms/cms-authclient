@@ -56,9 +56,9 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
         ]);
     }
 
-    public function renderConfigForm(ActiveForm $form)
+    public function renderConfigFormFields(ActiveForm $form)
     {
-        echo \Yii::$app->view->renderFile(__DIR__ . '/_settingsFrom.php', [
+        return \Yii::$app->view->renderFile(__DIR__ . '/_settingsFrom.php', [
             'form'  => $form,
             'model' => $this
         ], $this);
