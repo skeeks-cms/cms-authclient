@@ -10,11 +10,11 @@ use yii\helpers\Html;
 /* @var $model \skeeks\cms\models\WidgetConfig */
 
 ?>
-<?= $form->fieldSet(\Yii::t('skeeks/authclient','Are common')); ?>
-    <?= $form->field($model, 'enabled')->radioList(\Yii::$app->formatter->booleanFormat); ?>
-<?= $form->fieldSetEnd(); ?>
+<? $fieldSet = $form->fieldSet(\Yii::t('skeeks/authclient','Are common')); ?>
+    <?= $form->field($model, 'enabled')->checkbox(); ?>
+<? $fieldSet::end(); ?>
 
-<?= $form->fieldSet('GitHub'); ?>
+<? $fieldSet = $form->fieldSet('GitHub'); ?>
 
     <p><?=\Yii::t('skeeks/authclient','Create application at page')?>: <?= Html::a('https://github.com/settings/applications', 'https://github.com/settings/applications', [
             'target' => '_blank'
@@ -27,9 +27,9 @@ use yii\helpers\Html;
     <?= $form->field($model, 'githubClientSecret')->textInput(['placeholder' => 'f01f7bc7d41f38e4049d15786c0f1b93a5e96e90']); ?>
     <?= $form->field($model, 'githubClass')->textInput(['placeholder' => 'yii\authclient\clients\GitHub'])->hint(\Yii::t('skeeks/authclient','Optional parameter, if not filled will be used {yii}',['yii' => 'yii\authclient\clients\GitHub'])); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<? $fieldSet::end(); ?>
 
-<?= $form->fieldSet('Vk'); ?>
+<? $fieldSet = $form->fieldSet('Vk'); ?>
 
     <p><?=\Yii::t('skeeks/authclient','Create application at page')?>: <?= Html::a('http://vk.com/editapp?act=create', 'http://vk.com/editapp?act=create', [
             'target' => '_blank'
@@ -42,10 +42,10 @@ use yii\helpers\Html;
     <?= $form->field($model, 'vkClientSecret')->textInput(['placeholder' => 'sxAWws6ATNj5vDabPysA']); ?>
     <?= $form->field($model, 'vkClass')->textInput(['placeholder' => 'yii\authclient\clients\VKontakte'])->hint(\Yii::t('skeeks/authclient','Optional parameter, if not filled will be used {yii}',['yii' => 'yii\authclient\clients\VKontakte'])); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<? $fieldSet::end(); ?>
 
 
-<?= $form->fieldSet('Facebook'); ?>
+<? $fieldSet = $form->fieldSet('Facebook'); ?>
 
     <p><?=\Yii::t('skeeks/authclient','Create application at page')?>: <?= Html::a('https://developers.facebook.com/apps', 'https://developers.facebook.com/apps', [
             'target' => '_blank'
@@ -58,9 +58,9 @@ use yii\helpers\Html;
     <?= $form->field($model, 'facebookClientSecret')->textInput(['placeholder' => 'sxAWws6ATNj5vDabPysA']); ?>
     <?= $form->field($model, 'facebookClass')->textInput(['placeholder' => 'yii\authclient\clients\Facebook'])->hint(\Yii::t('skeeks/authclient','Optional parameter, if not filled will be used {yii}',['yii' => 'yii\authclient\clients\VKontakte'])); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<? $fieldSet::end(); ?>
 
-<?= $form->fieldSet('Google'); ?>
+<? $fieldSet = $form->fieldSet('Google'); ?>
 
     <p>
         <?=\Yii::t('skeeks/authclient', 'Create application at page')?>: <?= Html::a('https://console.developers.google.com/project', 'https://console.developers.google.com/project', [
@@ -76,7 +76,7 @@ use yii\helpers\Html;
     <?= $form->field($model, 'googleClientSecret')->textInput(['placeholder' => 'pJRpdS7UQRabOumyqRj-HaDR']); ?>
     <?= $form->field($model, 'googleClass')->textInput(['placeholder' => 'yii\authclient\clients\Google'])->hint(\Yii::t('skeeks/authclient','Optional parameter, if not filled will be used {yii}',['yii' => 'yii\authclient\clients\Google'])); ?>
 
-<?= $form->fieldSetEnd(); ?>
+<? $fieldSet::end(); ?>
 
 
 

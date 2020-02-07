@@ -7,6 +7,7 @@
  */
 namespace skeeks\cms\authclient;
 
+use skeeks\cms\backend\widgets\ActiveFormBackend;
 use skeeks\cms\components\Cms;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
@@ -56,6 +57,11 @@ class CmsAuthClientSettings extends \skeeks\cms\base\Component
         ]);
     }
 
+    public function beginConfigForm()
+    {
+        return ActiveFormBackend::begin();
+    }
+    
     public function renderConfigFormFields(ActiveForm $form)
     {
         return \Yii::$app->view->renderFile(__DIR__ . '/_settingsFrom.php', [
