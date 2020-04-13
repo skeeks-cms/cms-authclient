@@ -22,14 +22,14 @@ return [
 
                                     'items' =>
                                         [
-                                            [
+                                            /*[
                                                 "name"           => ['skeeks/cms', "Settings"],
                                                 "url"            => ["cms/admin-settings", "component" => 'skeeks\cms\authclient\CmsAuthClientSettings'],
                                                 "image"          => ['skeeks\cms\assets\CmsAsset', 'images/icons/settings-big.png'],
                                                 "activeCallback" => function ($adminMenuItem) {
                                                     return (bool)(\Yii::$app->request->getUrl() == $adminMenuItem->getUrl());
                                                 },
-                                            ],
+                                            ],*/
 
                                             [
                                                 "name"  => ['skeeks/authclient', "Social profiles"],
