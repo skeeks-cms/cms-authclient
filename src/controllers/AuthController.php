@@ -12,6 +12,7 @@ use skeeks\cms\base\Controller;
 use skeeks\cms\components\Cms;
 use skeeks\cms\helpers\AjaxRequestResponse;
 use skeeks\cms\helpers\RequestResponse;
+use skeeks\cms\models\CmsUser;
 use skeeks\cms\models\CmsUserEmail;
 use skeeks\cms\models\forms\LoginForm;
 use skeeks\cms\models\forms\LoginFormUsernameOrEmail;
@@ -101,6 +102,10 @@ class AuthController extends Controller
                         {
                             $user = $userEmailModel->user;
                         }
+                    }
+
+                    if (!$user) {
+                        $user = CmsUser::find()->where(['email' => $emailFromAuthClient])->one();
                     }
                 }
 
