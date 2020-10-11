@@ -12,7 +12,7 @@ use yii\base\Module;
  * Class CmsAuthClientModule
  * @package skeeks\cms\authclient
  */
-class CmsAuthclientModule extends Module
+class CmsAuthClientModule extends Module
 {
     public $controllerNamespace = 'skeeks\cms\authclient\controllers';
 }
