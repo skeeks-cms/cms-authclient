@@ -52,7 +52,7 @@ return [
                 ],
 
 
-            'upaBackend' => [
+            /*'upaBackend' => [
                 'menu' => [
                     'data' => [
                         'personal' => [
@@ -66,7 +66,7 @@ return [
                         ],
                     ],
                 ],
-            ],
+            ],*/
         ],
 
     'modules' =>
