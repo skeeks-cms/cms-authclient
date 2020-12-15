@@ -14,5 +14,5 @@ use yii\web\AssetBundle;
  */
 class CmsAuthclientAsset extends AssetBundle
 {
-    public $sourcePath = '@skeeks/cms/authclient/assets';
+    public $sourcePath = '@skeeks/cms/authclient/assets/src';
 }
