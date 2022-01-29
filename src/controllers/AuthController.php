@@ -78,17 +78,17 @@ class AuthController extends Controller
                 //Если соц сеть вернула нам email то на него можно опираться.
                 if ($emailFromAuthClient = ArrayHelper::getValue($attributes, 'email')) {
                     //Нашли email
-                    $userEmailModel = CmsUserEmail::find()->where(['value' => $emailFromAuthClient])
+                    $userEmailModel = CmsUserEmail::find()->cmsSite()->where(['value' => $emailFromAuthClient])
                         //->andWhere(['approved' => Cms::BOOL_Y])
                         ->one();
                     if ($userEmailModel) {
-                        if ($userEmailModel->user) {
-                            $user = $userEmailModel->user;
+                        if ($userEmailModel->cmsUser) {
+                            $user = $userEmailModel->cmsUser;
                         }
                     }
 
                     if (!$user) {
-                        $user = CmsUser::find()->where(['email' => $emailFromAuthClient])->one();
+                        $user = CmsUser::find()->cmsSite()->email($emailFromAuthClient)->one();
                     }
                 }
 
