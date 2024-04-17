@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "skeeks/cms": "^5.0 || dev-master",
+        "skeeks/cms": "^5.0 || ^6.0 || dev-master",
         "yiisoft/yii2-authclient": "^2.0"
     },
     "autoload": {
